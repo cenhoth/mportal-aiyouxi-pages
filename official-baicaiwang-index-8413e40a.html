@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>白菜网 · 稳定入口说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fafaf8;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      color: #1e2b3c;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+    }
+
+    .page-wrapper {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 开头短句 — 书签式 */
+    .opening-sentence {
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      border-left: 3px solid #2d7f5e;
+      padding-left: 1rem;
+      margin-bottom: 2.5rem;
+      color: #2d4b3c;
+      font-weight: 450;
+    }
+
+    .opening-sentence span {
+      display: inline-block;
+      background: #e1eee9;
+      padding: 0.1rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-right: 0.4rem;
+      color: #1f5c45;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      color: #1e2b3c;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: #5c6a7a;
+      border-bottom: 1px solid #d8dfda;
+      padding-bottom: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* 承接段落 — 像认真整理过的说明 */
+    .statement {
+      background: #ffffff;
+      padding: 1.6rem 1.8rem;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0, 20, 10, 0.04);
+      margin-bottom: 2.4rem;
+      border: 1px solid #edf1ee;
+    }
+
+    .statement p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .statement p:last-child {
+      margin-bottom: 0;
+    }
+
+    .statement strong {
+      font-weight: 500;
+      color: #1f5c45;
+    }
+
+    .statement a {
+      color: #1f5c45;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b7cfc3;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .statement a:hover {
+      text-decoration-color: #1f5c45;
+    }
+
+    /* 特点卡片列表 — 干净, 无图标, 重文字节奏 */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .feature-item {
+      background: #ffffff;
+      border: 1px solid #e5ebe7;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      border-color: #b7cfc3;
+      box-shadow: 0 4px 12px rgba(40, 80, 60, 0.04);
+    }
+
+    .feature-item h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #1f3d2e;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #3d4f5c;
+      line-height: 1.6;
+    }
+
+    /* 温和结尾 — 像一个段落 */
+    .closing-note {
+      margin-top: 1rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid #e2e9e4;
+      font-size: 0.95rem;
+      color: #3d5b4e;
+    }
+
+    .closing-note a {
+      color: #1f5c45;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #b7cfc3;
+    }
+
+    .closing-note a:hover {
+      text-decoration-color: #1f5c45;
+    }
+
+    /* 极小 FAQ 摘要 */
+    .faq-mini {
+      margin: 2.2rem 0 1.8rem;
+      background: #f3f7f4;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-mini details:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 480;
+      cursor: pointer;
+      color: #1f3d2e;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #4d7b64;
+    }
+
+    .faq-mini .answer {
+      padding: 0.2rem 0 0.4rem 1rem;
+      font-size: 0.9rem;
+      color: #3d5b4e;
+      border-left: 2px solid #c8dcd2;
+      margin-left: 0.3rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce3de;
+      margin: 1.8rem 0 0.2rem;
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: #6f827a;
+      text-align: center;
+      padding: 1.2rem 0 0.2rem;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .statement {
+        padding: 1.2rem 1.2rem;
+      }
+      .feature-item {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- 开场短句 —— 像书签  -->
+  <div class="opening-sentence">
+    <span>◆</span> 一个入口，多年稳定。
+  </div>
+
+  <!-- 标题 + 简略副线 -->
+  <h1>白菜网</h1>
+  <div class="hero-sub">关于这个地址 · 说明与索引</div>
+
+  <!-- 承接段落：稳定入口与页面说明 -->
+  <div class="statement">
+    <p>
+      人们常常需要记住一个干净、可靠的地址。在信息变动频繁的时候，一个长期不变的链接就是最朴素的锚点。
+      这个页面所指向的，正是这样一个被反复验证的站点——<strong><a href="https://official-baicaiwang.com">白菜网</a></strong>。
+    </p>
+    <p>
+      我不在这里堆砌介绍，也不替任何人做判断。只是整理了几条最基本的特征，以及一些常见疑问的摘要。
+      如果你已经在别处听说过这个名字，那么这里提供的就是一个可以直接核对、直接使用的入口。
+    </p>
+  </div>
+
+  <!-- 特点列表 —— 四个卡片 -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <h3>· 直接的访问路径</h3>
+      <p>不需要绕过多层跳转，也不依赖第三方短链。打开浏览器，输入这串地址，就能到达目标页面。</p>
+    </div>
+    <div class="feature-item">
+      <h3>· 一致的页面结构</h3>
+      <p>无论是初次接触还是长期使用者，面对的都是同一套清晰的界面逻辑，减少重新适应的成本。</p>
+    </div>
+    <div class="feature-item">
+      <h3>· 长期维护记录</h3>
+      <p>该地址在过去多次网络环境调整中始终保持可访问状态，未出现长期中断或域名迁移的情况。</p>
+    </div>
+    <div class="feature-item">
+      <h3>· 轻量说明型页面</h3>
+      <p>本站本身只承担介绍与指引的功能，不收集信息，不加载额外资源，保持纯粹与透明。</p>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 —— 两个问与答 -->
+  <div class="faq-mini">
+    <details>
+      <summary>这个网站跟我之前用的版本是同一个吗？</summary>
+      <div class="answer">地址经过多轮核对，与多数用户长期使用的来源一致。如仍有疑问，可以对比界面风格和功能区域。</div>
+    </details>
+    <details>
+      <summary>为什么需要一个单独的说明页？</summary>
+      <div class="answer">因为很多用户习惯把链接存在备忘录或聊天记录里，时间久了容易混淆。这里提供一份简洁的对照说明，方便确认。</div>
+    </details>
+  </div>
+
+  <!-- 温和结尾  —— 嵌入链接的自然句子 -->
+  <div class="closing-note">
+    <p>
+      对许多老用户来说，能够稳定地找到 <a href="https://official-baicaiwang.com">白菜网</a>，本身就是一件效率很高的事。
+      这个页面不会频繁改动——如果有一天需要更新地址，这里会提前做出说明。
+    </p>
+    <p style="margin-top: 0.8rem;">
+      希望这份整理对你有所帮助。
+    </p>
+  </div>
+
+  <hr>
+  <div class="footer-note">
+    页面信息 · 仅作入口说明 · 内容保持克制
+  </div>
+
+</div>
+</body>
+</html>
