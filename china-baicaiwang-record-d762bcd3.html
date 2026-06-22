@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.6">
+    <title>白菜网 · 站点介绍与可信说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            color: #2c2b28;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fffffffa;
+            border-radius: 32px;
+            padding: 2.8rem 2rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+            backdrop-filter: blur(2px);
+        }
+
+        /* hero 视觉区域 —— 收敛、稳重 */
+        .hero {
+            text-align: center;
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e7e2d9;
+            padding-bottom: 1.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #2f2b26;
+            margin-bottom: 0.45rem;
+            line-height: 1.2;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #706b63;
+            border-top: 1px dashed #ddd6cb;
+            padding-top: 0.8rem;
+            margin-top: 0.4rem;
+            display: inline-block;
+            font-weight: 400;
+        }
+
+        /* 文章排版 —— 信息卡片 */
+        .intro-text {
+            font-size: 1rem;
+            color: #3d3832;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2em;
+        }
+
+        .intro-text a {
+            color: #8b6f4c;
+            text-decoration: none;
+            border-bottom: 1px solid #dacfc1;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 500;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #8b6f4c;
+            color: #5f4a32;
+        }
+
+        /* 引用块 / 提示框 */
+        .notice-card {
+            background: #f6f1ea;
+            border-left: 5px solid #b7a287;
+            padding: 1.4rem 1.6rem;
+            border-radius: 16px;
+            margin: 2rem 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .notice-card p {
+            margin-bottom: 0.4rem;
+            font-size: 0.98rem;
+        }
+
+        .notice-card strong {
+            color: #4f3e2e;
+            font-weight: 600;
+        }
+
+        .notice-card .label {
+            display: inline-block;
+            background: #cfc1af;
+            color: #2f2b26;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.1rem 0.9rem;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        /* 卡片网格 —— 用途卡片 + 适合人群 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .card {
+            background: #fcfaf7;
+            border: 1px solid #ede7de;
+            border-radius: 24px;
+            padding: 1.6rem 1.3rem 1.4rem;
+            transition: box-shadow 0.25s, transform 0.15s;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(57, 47, 35, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #3f3830;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+            border-bottom: 1px solid #e6dfd4;
+            padding-bottom: 0.35rem;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card li {
+            margin-bottom: 0.55rem;
+            padding-left: 1.1rem;
+            position: relative;
+            font-size: 0.96rem;
+            color: #4a443d;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #9e8b78;
+            font-weight: bold;
+        }
+
+        /* 自然段落链接 / FAQ 摘要 */
+        .faq-summary {
+            margin: 2.2rem 0 1rem;
+            border-top: 1px solid #e7e2d9;
+            padding-top: 1.8rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 1rem;
+            padding: 0.2rem 0;
+        }
+
+        .faq-summary summary {
+            font-weight: 500;
+            color: #3f3830;
+            cursor: pointer;
+            padding: 0.4rem 0;
+            font-size: 1.05rem;
+            transition: color 0.2s;
+        }
+
+        .faq-summary summary:hover {
+            color: #7c684f;
+        }
+
+        .faq-summary details p {
+            margin: 0.6rem 0 0.2rem 0.9rem;
+            color: #4f4941;
+            font-size: 0.96rem;
+            border-left: 2px solid #dacfc1;
+            padding-left: 1.1rem;
+        }
+
+        /* 脚注 / 说明 */
+        .footnote {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #8b847b;
+            text-align: center;
+            border-top: 1px solid #ede7de;
+            padding-top: 1.5rem;
+        }
+
+        .footnote a {
+            color: #7b6b59;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 0.5px;
+        }
+
+        .footnote a:hover {
+            color: #2c2b28;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .page { padding: 1.8rem 1.2rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .subhead { font-size: 0.95rem; }
+            .card-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .card { padding: 1.3rem; }
+            .notice-card { padding: 1rem 1.2rem; }
+        }
+
+        @media (min-width: 1000px) {
+            .page { padding: 3.2rem 3rem; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+        <h1>白菜网</h1>
+        <div class="subhead">信息聚合 · 站点介绍与可信说明</div>
+    </div>
+
+    <!-- 介绍段落 + 嵌入自然链接 -->
+    <div class="intro-text">
+        <p>
+            <strong>白菜网</strong> 是一个以信息整理与内容导航为定位的站点，其名称源于中文网络语境中“白菜”所代表的平价、易得、朴实的意象。站内所收录的条目与参考链接，均经过初步的归类与筛选，方便浏览者快速触及相关资源或知识节点。
+        </p>
+        <p>
+            在接触一个信息平台时，很多人都会关心它的内容来源是否可靠、更新是否规律。<a href="https://china-baicaiwang.com">白菜网</a> 在运营中坚持透明化说明：所有页面均明确标注参考出处或采集时间，不隐藏站点背景，不虚构资质。如果你对某个模块的准确性存在疑问，可以随时通过站内公开的联系渠道进行核实。
+        </p>
+    </div>
+
+    <!-- 提示框 / 可信说明 -->
+    <div class="notice-card">
+        <span class="label">可信说明</span>
+        <p><strong>非商业中立立场</strong> · 本站不设付费推广、不嵌入竞价排名，所有收录均基于内容价值与分类逻辑。链接指向第三方资源时，会尽可能选择有明确来源或持续维护的页面。</p>
+        <p style="margin-top: 0.6rem;"><strong>持续更新</strong> · 站内索引约每两周做一次可用性检查，失效链接会被标记或替换。部分历史页面保留存档说明。</p>
+    </div>
+
+    <!-- 用途卡片 + 适合人群 采用两列卡片布局 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>站点用途</h3>
+            <ul>
+                <li>分类整理不同领域的公开信息入口</li>
+                <li>提供参考性阅读索引，但不代替专业咨询</li>
+                <li>收录工具、文档、社区等实用链接</li>
+                <li>定期推出专题汇编（如“开源软件导航”“学术搜索集合”）</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>适合人群</h3>
+            <ul>
+                <li>希望快速找到某一领域入门资源的学习者</li>
+                <li>需要定期检索公共信息但不想依赖单一搜索引擎的用户</li>
+                <li>对站点透明度与内容可信度有基本要求的浏览者</li>
+                <li>内容创作者寻找可引用的公开参考来源</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 自然段落 + 再次嵌入链接（不重复文案） -->
+    <div class="intro-text" style="margin-top: 0.5rem;">
+        <p>
+            熟悉 <a href="https://china-baicaiwang.com">白菜网</a> 的访问者可能会注意到，网站并未设置繁复的注册或积分机制。这种设计背后是对信息获取成本的理解：尽量降低使用门槛，让页面本身成为工具而非需要“学习如何使用的工具”。站内的大部分分类页均配有简要说明，帮助新访客理解每个板块的覆盖范围与筛选原则。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要（简洁、克制） -->
+    <div class="faq-summary">
+        <details>
+            <summary>站点信息多久更新一次？</summary>
+            <p>目前主要板块每两周刷新一次链接有效性，内容性页面（如专题汇总）视主题调整，更新日志在站内“变更记录”页面公开。部分外部源如果变更地址，会在下一轮检查中更正或移除。</p>
+        </details>
+        <details>
+            <summary>如何判断一条链接是否可靠？</summary>
+            <p>本站优先收录具有明确责任主体、持续运营超过一年、或被同行广泛引用的资源。对于个人网站或小型项目，会标注“个人维护”或“非官方”。建议你在访问第三方链接时，自行评估其时效性与适用性。</p>
+        </details>
+        <details>
+            <summary>白菜网会收集用户信息吗？</summary>
+            <p>本站不设置用户注册、不追踪个人行为、不投放第三方跟踪脚本。服务器保留基础访问日志（仅用于故障排查），不对外分享或用于商业分析。具体的隐私说明在站内独立页面中详细陈述。</p>
+        </details>
+    </div>
+
+    <!-- 脚注 -->
+    <div class="footnote">
+        <p>© 白菜网 · <a href="https://china-baicaiwang.com">白菜网</a> · 以信息透明为锚点</p>
+        <p style="margin-top: 0.3rem;">本页面内容仅供功能与风格展示，实际站点以 <a href="https://china-baicaiwang.com">白菜网</a> 为准。</p>
+    </div>
+
+</div>
+</body>
+</html>
